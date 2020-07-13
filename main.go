@@ -9,8 +9,13 @@ import (
 	"golang.org/x/sync/singleflight"
 )
 
+var requestGroup singleflight.Group
+
+/*
+how to test:
+ab -n 100 -c 100 localhost:8080/normal
+*/
 func main() {
-	var requestGroup singleflight.Group
 	// localhost:8080/normal
 	http.HandleFunc("/normal", func(w http.ResponseWriter, r *http.Request) {
 		start := time.Now()
