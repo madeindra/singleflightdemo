@@ -8,6 +8,7 @@ import (
 
 	"golang.org/x/sync/singleflight"
 )
+
 // ab -n 100 -c 100  -t 10 http://localhost:8080/singleflight
 func main() {
 	var requestGroup singleflight.Group
